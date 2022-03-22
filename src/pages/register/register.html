@@ -1,0 +1,39 @@
+<ion-content padding>
+  <ion-fab right top>
+    <button ion-fab color="white" large (click)="doClose()"><ion-icon name="close"></ion-icon></button>
+  </ion-fab>
+  <div padding></div>
+
+  <div padding><h2>新規登録</h2></div>
+  <form [formGroup]="form">
+  <ion-list no-lines>
+    <ion-item>
+      <ion-input #input type="email" formControlName='email' placeholder='メールアドレス' required></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-input type="{{type}}" formControlName='password' placeholder='パスワード' required></ion-input>
+      <button ion-button item-end small outline (click)="doAction(1)">
+        <ion-icon name="ios-eye-outline" *ngIf="type=='password'"></ion-icon>
+        <ion-icon name="ios-eye-off-outline" *ngIf="type=='text'"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-item>
+      <ion-input type="text" formControlName='code' placeholder='検証コード' required></ion-input>
+      <button ion-button outline small item-end [disabled]='wait>0 || !(form.value["email"])' (click)="doAction(2)">発送</button>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button ion-button block type="submit" [disabled]="!form.valid" (click)="doAction(3)">OK</button>
+  </div>
+  </form>
+  <!-- <ion-row>
+  <ion-col></ion-col>
+  <ion-col col-auto>
+    <ion-item>
+      <ion-label>利用方針をご同意の上、お進みください</ion-label>
+      <ion-checkbox color="dark" checked="true"></ion-checkbox>
+    </ion-item>
+  </ion-col>
+  <ion-col></ion-col>
+  </ion-row> -->
+</ion-content>

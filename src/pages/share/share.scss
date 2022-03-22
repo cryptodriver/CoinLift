@@ -1,0 +1,107 @@
+page-share {
+  .fixed-content {
+    background-color: color($colors, white, base) !important;
+  }
+
+  ion-grid {
+
+    ion-row {
+      &:first-child {
+        font-size: 120%;
+        height: 120px !important;
+        color: color($colors, white, base) !important;
+        background-image: url(../../assets/imgs/news.jpg);
+        background-size: cover;
+
+        div {
+          width: 100%;
+          display: table;
+          text-align: center;
+          font-size: 120%;
+          div {
+            display: table-cell;
+            height: 120px !important;
+            vertical-align: middle;
+          }
+        }
+      }
+
+      ion-col {
+        padding: 5px 20px 0 20px !important;
+
+        span {
+          color: color($colors, medium, base) !important;
+        }
+
+        h3 {
+          margin: 0 0 10px 0 !important;
+        }
+
+      }
+
+      &:last-child {
+        background-color: color($colors, light, base);
+        margin: 20px 0 0 0 !important;
+        padding:  5px 20px 2px 20px !important;
+
+        ion-col {
+          padding: 0 !important;
+
+          img {
+            width: 72px;
+            height: 72px;
+          }
+        }
+
+        div {
+          width: 100%;
+          display: table;
+          text-align: center;
+          font-size: 120%;
+
+          div {
+            display: table-cell;
+            height: 72px !important;
+            vertical-align: middle;
+
+            span {
+              font-size: 50% !important;
+            }
+          }
+        }
+
+      }
+    }
+  }
+
+  .toolbar-background {
+    border: none;
+  }
+
+  ion-toolbar {
+    ion-row {
+      ion-col {
+        div {
+          font-size: 80%;
+          padding-top: 0px;
+
+          ion-icon {
+            padding: 8px 5px 5px 5px;
+            width: 40px; height: 40px;
+            border: 1px solid color($colors, secondary, base);
+            border-radius: 50%;
+            font-size: 200%;
+          }
+        }
+      }
+    }
+  }
+}
+
+.center-modal {
+  padding: 20% 10% 20% 10%;
+  ion-backdrop {
+    visibility: visible !important;
+    z-index: 0 !important;
+  }
+}

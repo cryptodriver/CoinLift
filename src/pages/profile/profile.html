@@ -1,0 +1,21 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>プロファイル</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider"> </div>
+  <ion-list no-lines>
+    <ion-item detail-push (click)="doRedirect(1, {n: 'ニックネーム', v: data.name})">
+      ニックネーム
+      <ion-note item-end>{{ data.name || '設定なし' }}</ion-note>
+    </ion-item>
+    <ion-item detail-push (click)="doRedirect(2, {n: '自己紹介', v: data.self_pr})">
+      自己紹介
+      <ion-note item-end>{{ data.self_pr || '設定なし' }}</ion-note>
+    </ion-item>
+    <ion-item-divider color="light"> </ion-item-divider>
+    <button ion-button full color="white" (click)="doSignout()">サインアウト</button>
+  </ion-list>
+</ion-content>

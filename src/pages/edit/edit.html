@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>{{ p.v.n }}</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider"> </div>
+  <form [formGroup]="form">
+  <ion-list no-lines *ngIf="p.k==1">
+    <ion-item>
+      <ion-input #input1 formControlName='name' type="text" [(ngModel)]="data.name"></ion-input>
+      <button ion-button [disabled]="!form.valid" item-end (click)='doSave(p.k)'>保存</button>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="p.k==2">
+    <ion-item>
+      <ion-textarea #input2 formControlName='self_pr' type="text" [(ngModel)]="data.self_pr"></ion-textarea>
+      <button ion-button [disabled]="!form.valid" item-end (click)='doSave(p.k)'>保存</button>
+    </ion-item>
+  </ion-list>
+  </form>
+</ion-content>

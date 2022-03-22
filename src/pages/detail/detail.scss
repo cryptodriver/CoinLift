@@ -1,0 +1,91 @@
+page-detail {
+  .c1 {
+    margin: 0px !important;
+    width: calc(100% - 0px) !important;
+    -webkit-box-shadow: none !important;
+    box-shadow:  none !important;
+
+    ion-item {
+      p {
+        font-size: 60% !important;
+      }
+    }
+    ion-avatar {
+      margin-right: 5px !important;
+    }
+
+    ion-card-content {
+      padding-bottom: 0 !important;
+
+      p {
+        color: color($colors, dark, base);
+        font-size: 110% !important;
+        line-height: 150%;
+      }
+    }
+
+    ion-row {
+      padding: 5px 8px 0 8px !important;
+      ion-col {
+        border-top: 1px solid color($colors, light, base);
+        padding: 0 !important;
+
+        button {
+          font-size: 80%;
+        }
+      }
+    }
+
+    ion-grid {
+
+      .r1 {
+        border-bottom: 1px solid color($colors, light, base);
+        padding: 0 0 0 8px !important;
+      }
+
+      ion-row {
+        ion-col {
+          border-top: 0px;
+        }
+
+      }
+
+      ion-item {
+        border-bottom: 1px solid color($colors, light, base);
+        padding: 5px 0 0 8px !important;
+
+        ion-row {
+          padding: 0 !important;
+
+          p {
+            font-size: 60% !important;
+            margin-top: -1px !important;
+          }
+
+          span {
+            color: color($colors, dark, base);
+            font-size: 90%;
+          }
+
+          button {
+            span {
+              color: color($colors, medium, base);
+              font-size: 80%;
+            }
+          }
+
+          &:last-child {
+            ion-col {
+              padding: 8px 0 8px 0 !important;
+            }
+          }
+        }
+
+        ion-label {
+          margin: 0 !important;
+        }
+      }
+
+    }
+  }
+}

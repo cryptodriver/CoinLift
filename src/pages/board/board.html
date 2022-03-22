@@ -1,0 +1,92 @@
+<ion-header>
+  <ion-toolbar color="primary" [(ngModel)]="target">
+    <ion-segment color="white" (ionChange)="doChange()">
+      <ion-segment-button value="0">
+        すべて
+      </ion-segment-button>
+      <ion-segment-button value="1">
+        フォロー
+      </ion-segment-button>
+    </ion-segment>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-list no-lines class="i1">
+    <button ion-item (click)="doAction(0)">
+      <ion-icon name="ios-create-outline"></ion-icon>
+      <span text-justify>今なに考えてる？投稿しよう～</span>
+    </button>
+  </ion-list>
+
+  <div class="divider"> </div>
+
+  <ion-card class="c1" *ngFor="let o of data">
+    <ion-item>
+      <ion-avatar item-start (click)="doAction(8, o)">
+        <img src="{{ o.avatar || 'assets/imgs/avatar.png' }}">
+      </ion-avatar>
+      <h3>{{o.name || 'ID'+o.user_id}}</h3>
+      <p>{{o.created_at|timeAgo}}</p>
+      <!-- <button ion-button item-end outline [color]="relation.follows.includes(o.user_id)?'primary':'medium'" (click)="doAction(2, o)">
+        {{ relation.follows.includes(o.user_id) ? 'フォロー中' : 'フォロー'}}
+      </button> -->
+      <button ion-button item-end icon-only clear (click)="doAction(4, o, $event)">
+        <ion-icon name="ios-more-outline"></ion-icon>
+      </button>
+    </ion-item>
+    <ion-card-content>
+      <p text-justify>{{o.content}}</p>
+      <div *ngIf="o.attachment.length>0">
+        <ion-row>
+          <ion-col col-3 *ngFor="let i of o.attachment">
+            <img [src]="i.url" imageViewer>
+          </ion-col>
+        </ion-row>
+      </div>
+      <ion-grid *ngIf="o.comment.length>0">
+        <ion-row *ngFor="let c of o.comment; let i=index" (click)="doAction(7, {post: o, comment: c})">
+          <ion-col *ngIf="i<5">
+            <span>{{c.name || 'ID'+c.user_id}}:</span>{{c.content}}
+          </ion-col>
+        </ion-row>
+        <ion-row *ngIf="o.comment.length>5">
+          <ion-col text-right>
+            <button ion-button icon-start clear small color="primary" (click)="doAction(5, o)">
+              もっとみる
+            </button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </ion-card-content>
+    <ion-row class="r1">
+      <!-- <ion-col text-center>
+        <button ion-button icon-start clear small color="medium">
+          <ion-icon name="ios-redo-outline"></ion-icon>
+          <div>シェア</div>
+        </button>
+      </ion-col> -->
+      <ion-col text-center>
+        <button ion-button icon-start clear small color="medium" (click)="doAction(3, o)">
+          <ion-icon name="ios-text-outline"></ion-icon>
+          <div>{{o.comment.length}} コメント</div>
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button icon-start clear small [color]="o._like?'primary':'medium'" (click)="doAction(1, o)">
+          <ion-icon name="ios-thumbs-up-outline"></ion-icon>
+          <div>{{o.like}} いいね</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <div class="divider"> </div>
+  </ion-card>
+
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>

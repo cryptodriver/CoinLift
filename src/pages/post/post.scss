@@ -1,0 +1,51 @@
+page-post {
+
+  .fixed-content {
+    background-color: color($colors, white, base) !important;
+  }
+
+  ion-list {
+    margin-bottom: 0 !important;
+    ion-item {
+      &:first-child {
+        padding-right: 8px !important;
+      }
+
+      ion-textarea {
+        border: 1px solid color($colors, medium, base);
+        font-size: 80%;
+        textarea {
+          margin: 5px !important;
+        }
+      }
+    }
+
+    ion-row {
+      padding: 5px 11px 5px 16px !important;
+
+      ion-col {
+        padding-left: 0 !important;
+        div {
+          overflow: hidden;
+          height: 72px;
+          width: 100%;
+          img {
+            width: 100%;
+            min-height: 72px;
+          }
+        }
+        .d1 {
+          border: 1px solid color($colors, medium, base);
+          color: color($colors, medium, base);
+          display: table;
+
+          ion-icon {
+            vertical-align: middle;
+            display: table-cell;
+            font-size: 400%;
+          }
+        }
+      }
+    }
+  }
+}

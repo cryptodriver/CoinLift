@@ -1,0 +1,31 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>投稿</ion-title>
+    <ion-buttons end>
+      <button ion-button color="white" outline round [disabled]="!form.valid" (click)="doSubmit()"> 発 表 </button>
+    </ion-buttons>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="form">
+  <ion-list no-lines padding-top>
+    <ion-item>
+      <ion-textarea #input placeholder="今なに考えてるの" formControlName='content' maxlength="80" rows="4" [attr.autofocus]="true"></ion-textarea>
+    </ion-item>
+    <ion-row>
+      <ion-col col-3 *ngFor="let o of data.imgs" (click)="doAction(1, o.id)">
+        <div>
+          <img src="{{ o.url }}"/>
+        </div>
+      </ion-col>
+      <ion-col col-3 text-center *ngIf="data.imgs.length<1" (click)="doAction(2)">
+        <div class="d1">
+          <ion-icon name="ios-add-outline"></ion-icon>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-list>
+  <!-- <button ion-button outline round type="submit" [disabled]="!form.valid"> 発 表 </button> -->
+  </form>
+</ion-content>

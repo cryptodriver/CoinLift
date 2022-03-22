@@ -1,0 +1,28 @@
+page-reply {
+  ion-list {
+    margin-bottom: 0 !important;
+    ion-item {
+      &:first-child {
+        padding-right: 8px !important;
+      }
+
+      ion-textarea {
+        border: 1px solid color($colors, medium, base);
+        font-size: 80%;
+        background-color: color($colors, white, base) !important;
+        textarea {
+          margin: 5px !important;
+        }
+      }
+      background-color: color($colors, light, base) !important;
+    }
+  }
+}
+
+.half-modal {
+  padding-top: calc(100% - 100px);
+  ion-backdrop {
+    visibility: visible !important;
+    z-index: 0 !important;
+  }
+}

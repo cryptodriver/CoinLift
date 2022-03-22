@@ -1,0 +1,27 @@
+page-relation {
+  ion-list {
+    margin-bottom: 0 !important;
+    ion-item {
+      border-bottom: 1px solid color($colors, light, base) !important;
+      min-height: 2em !important;
+
+      ion-label {
+        margin: 0 !important;
+        font-size: 80% !important;
+      }
+
+      ion-icon {
+        margin: 2px 5px 0 0 !important;
+        font-size: 100% !important;
+        min-height: 0 !important;
+        min-width: 0 !important;
+      }
+    }
+  }
+}
+
+.half-popover {
+  .popover-content {
+    max-width: 150px;
+  }
+}

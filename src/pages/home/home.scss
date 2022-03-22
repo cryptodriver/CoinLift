@@ -1,0 +1,141 @@
+page-home {
+
+  .h1 {
+    font-size: 80%;
+    padding: 5px !important;
+    border: 1px solid color($colors, medium, base) !important;
+    width: 80% !important;
+    margin-left: 10% !important;
+    margin-right: 10% !important;
+    color: color($colors, medium, base) !important;
+    background-color: color($colors, white, base) !important;
+    border-radius: 25px !important;
+  }
+
+  .g1 {
+    padding: 0;
+
+    ion-row:first-child {
+      ion-col {
+        border: 0px;
+        padding: 5px 8px 4px 8px !important;
+      }
+    }
+
+    ion-row:last-child {
+      ion-col {
+        padding: 16px 0 16px;
+      }
+    }
+
+    ion-col {
+      border: 1px solid color($colors, light, base);
+      border-right: 0px !important;
+
+      &:first-child {
+        border-left: 0px;
+      }
+    }
+
+    ion-badge {
+      font-size: 100%;
+    }
+
+    div {
+      padding: 8px 0 0 !important;
+      font-size: 150%;
+    }
+
+    span {
+      font-size: 80%;
+      line-height: 1.5;
+    }
+
+    .pump {
+      color: color($colors, secondary, base);
+    }
+
+    .dump {
+      color: color($colors, danger, base);
+    }
+  }
+
+  .g2 {
+    padding: 0px;
+    ion-row {
+      ion-col {
+        padding: 5px 8px 4px 8px !important;
+      }
+    }
+  }
+
+  .g3 {
+    padding: 0px;
+    ion-row:first-child {
+      // background-color: color($colors, light, base);
+      ion-col:first-child {
+        margin-left: 5px !important;
+      }
+      ion-col:last-child {
+        margin-right: 5px !important;
+      }
+    }
+    ion-badge {
+      width: 50%;
+    }
+    .s1 {
+      background-color: color($colors, primary, base);
+      padding: 1px;
+      color: #ffffff;
+      border-radius: 2px;
+      margin-right: 5px;
+      font-size: 80%;
+    }
+    ion-row {
+      padding: 4px 5px 4px 5px;
+      border-bottom: 1px solid color($colors, light, base);
+
+      &:first-child {
+        padding: 0 !important;
+      }
+    }
+
+    .r6 {
+      ion-col {
+        padding: 0 !important;
+        &:first-child {
+          border-right: 1px solid color($colors, light, base);
+        }
+      }
+    }
+
+  }
+
+  .g4 {
+    padding: 0;
+
+    ion-row {
+      ion-col {
+        border-bottom: 1px solid color($colors, light, base);
+        padding: 5px 10px 4px 8px !important;
+      }
+    }
+  }
+
+  .g5 {
+    line-height: 0 !important;
+    border-width: 0 !important;
+  }
+
+  .segment-button {
+    border: 0 !important;
+    border-bottom: 1px solid color($colors, light, base) !important;
+    border-radius: 0 !important;
+    background-color: color($colors, white, base) !important;
+    color: color($colors, dark, base) !important;
+  }
+  .segment-activated {
+    color: color($colors, tertiary, base) !important;
+    border-bottom: 1px solid color($colors, primary, base) !important;
+  }
+}

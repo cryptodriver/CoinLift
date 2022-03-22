@@ -1,0 +1,53 @@
+<ion-content>
+  <ion-grid #div no-padding>
+    <ion-row text-center>
+      <ion-col text-center>
+        <div>
+          <div>ニュース</div>
+        </div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col>
+        <span>[{{data.created_at | date: 'MM月dd日 hh:mm'}}]</span>
+      </ion-col>
+    </ion-row>
+    <ion-row text-wrap>
+      <ion-col text-justify>
+        <h3>{{data.title}}</h3>
+        <div>{{data.content}}</div>
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col col-auto>
+        <img src="../../assets/imgs/qr.png">
+      </ion-col>
+      <ion-col>
+        <div>
+          <div>
+            CoinLift <br><span>QRコードスキャンでアプリダウンロードを！</span>
+          </div>
+        </div>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+</ion-content>
+
+<ion-footer>
+  <ion-toolbar color="white">
+    <ion-row>
+      <ion-col text-center (click)="doShare(1,1)">
+        <div><ion-icon name='ios-download-outline' large></ion-icon></div>
+        <div>画像保存</div>
+      </ion-col>
+      <ion-col text-center (click)="doShare(3,1)" >
+        <div><ion-icon name='ios-redo-outline' large></ion-icon></div>
+        <div>アプリへ</div>
+      </ion-col>
+      <ion-col text-center (click)="doShare(2,1)">
+        <div><ion-icon name='ios-close-outline' large></ion-icon></div>
+        <div>キャンセル</div>
+      </ion-col>
+    </ion-row>
+  </ion-toolbar>
+</ion-footer>

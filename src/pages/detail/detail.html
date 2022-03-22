@@ -1,0 +1,76 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>投稿詳細</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-card class="c1">
+    <ion-item>
+      <ion-avatar item-start>
+        <img src="{{ data.avatar || 'assets/imgs/avatar.png' }}">
+      </ion-avatar>
+      <h3>{{data.name || 'ID'+data.user_id}}</h3>
+      <p>{{data.created_at|timeAgo}}</p>
+    </ion-item>
+    <ion-card-content>
+      <p text-justify>{{data.content}}</p>
+    </ion-card-content>
+    <ion-row>
+      <!-- <ion-col text-center>
+        <button ion-button icon-start clear small color="medium">
+          <ion-icon name="ios-redo-outline"></ion-icon>
+          <div>シェア</div>
+        </button>
+      </ion-col> -->
+      <ion-col text-center>
+        <button ion-button icon-start clear small color="medium" (click)="doAction(2, data)">
+          <ion-icon name="ios-text-outline"></ion-icon>
+          <div>{{data.comment.length}} コメント</div>
+        </button>
+      </ion-col>
+      <ion-col text-center>
+        <button ion-button icon-start clear small [color]="1?'primary':'medium'" (click)="doAction(3, data)">
+          <ion-icon name="ios-thumbs-up-outline"></ion-icon>
+          <div>{{data.like}} いいね</div>
+        </button>
+      </ion-col>
+    </ion-row>
+    <div class="divider"> </div>
+
+    <ion-grid>
+      <ion-row class="r1">
+        <ion-col>最新コメント</ion-col>
+      </ion-row>
+
+      <ion-item text-wrap *ngFor="let c of data.comment">
+        <ion-row>
+          <ion-col col-auto>
+            <ion-avatar>
+              <img src="{{c.avatar||'assets/imgs/avatar.png'}}">
+            </ion-avatar>
+          </ion-col>
+          <ion-col>
+            <h6>{{c.name || 'ID'+c.user_id}}</h6>
+            <p>{{c.created_at|timeAgo}}</p>
+          </ion-col>
+          <ion-col text-right>
+            <ion-icon *ngIf="c.user_id!=myid" name="ios-thumbs-up-outline" [color]="c._like?'primary':'medium'" small (click)="doAction(1, c)"></ion-icon>
+            <ion-icon *ngIf="c.user_id==myid" name="ios-trash-outline" color="medium" small (click)="doAction(4, c)"></ion-icon>
+          </ion-col>
+        </ion-row>
+        <ion-row>
+          <ion-col text-justify>
+            <span>{{c.content}}</span>
+          </ion-col>
+        </ion-row>
+      </ion-item>
+
+    </ion-grid>
+  </ion-card>
+
+</ion-content>

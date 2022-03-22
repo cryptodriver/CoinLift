@@ -1,0 +1,56 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>設定</ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <div class="divider"> </div>
+  <ion-list no-lines *ngIf="p.k == 1">
+    <ion-item>
+      <ion-label>{{p.v.n}}</ion-label>
+      <ion-toggle color="secondary" [(ngModel)]="data.notify" (ionChange)="doAction(p.k, p, $event)"></ion-toggle>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="p.k == 2">
+    <ion-item>
+      <ion-label>{{p.v.n}}</ion-label>
+      <ion-select interface="popover" [(ngModel)]="data.currency" (ionChange)="doAction(p.k, p, $event)">
+        <ion-option value="USD">USD</ion-option>
+        <ion-option value="JPY">JPY</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="p.k == 3">
+    <ion-item>
+      <ion-label>{{p.v.n}}</ion-label>
+      <ion-select interface="popover" (ionChange)="doAction(p.k, p, $event)">
+        <ion-option value="1"> 1秒</ion-option>
+        <ion-option value="3" selected="true"> 3秒</ion-option>
+        <ion-option value="10">10秒</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <ion-list no-lines *ngIf="p.k == 4">
+    <ion-item>
+      <ion-label>{{p.v.n}}</ion-label>
+      <!-- <div item-content>{{p.v.v}}</div> -->
+      <ion-select [(ngModel)]="data.coins" multiple="true" (ionChange)="doAction(p.k, p, $event)">
+        <ion-option *ngFor="let c of coins" (ionSelect)="doAction(10, c, $event)">{{c}}</ion-option>
+      </ion-select>
+    </ion-item>
+  </ion-list>
+  <div class="d1" padding *ngIf="p.k == 9">
+    <img src="../../assets/icon/favicon.ico">
+    <h2>CoinLift</h2>
+    <p>価値のある情報をより早く届ける</p>
+    <div>
+      <b>公式サイト</b><br>
+      <a (click)="doAction(8, 'http://coinlift.me')">http://coinlift.me</a>
+    </div>
+    <div>
+      <b>お問い合わせ</b><br>
+      <a (click)="doAction(9, 'coinlift@outlook.jp')">coinlift@outlook.jp</a>
+    </div>
+  </div>
+</ion-content>

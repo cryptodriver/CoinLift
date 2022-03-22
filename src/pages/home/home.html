@@ -1,0 +1,136 @@
+<ion-header>
+  <!-- <ion-navbar color="primary"> -->
+  <ion-toolbar color="primary">
+    <ion-title>
+      <!-- <ion-row>
+        <ion-col text-center>
+          <div class="h1" (click)="doAction(1)">
+            コインを選択
+          </div>
+        </ion-col>
+      </ion-row> -->
+      相場
+    </ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only color="white" (click)="doAction(1)">
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-toolbar>
+  <!-- </ion-navbar> -->
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <ion-grid class="g1">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="ios-podium-outline" start></ion-icon>
+        グローバル
+      </ion-col>
+    </ion-row>
+    <ion-row>
+      <ion-col text-center>
+        <ion-badge color="light">{{data.h[0][3]}}</ion-badge>
+        <div [ngClass]="{'pump': data.h[0][1] > 0,'dump': data.h[0][1] < 0}">{{data.h[0][0] | currency:config.c:symbol:(config.c=='JPY'?'1.0-0':'1.2-2')}}</div>
+        <span>{{data.h[0][2] | currency:(config.c!='USD'?'USD':'JPY')}}</span>
+      </ion-col>
+      <ion-col text-center>
+        <ion-badge color="light">{{data.h[1][3]}}</ion-badge>
+        <div [ngClass]="{'pump': data.h[1][1] > 0,'dump': data.h[1][1] < 0}">{{data.h[1][0] | currency:config.c:symbol:(config.c=='JPY'?'1.0-0':'1.2-2')}}</div>
+        <span>{{data.h[1][2] | currency:(config.c!='USD'?'USD':'JPY')}}</span>
+      </ion-col>
+      <ion-col text-center>
+        <ion-badge color="light">{{data.h[2][3]}}</ion-badge>
+        <div [ngClass]="{'pump': data.h[2][1] > 0,'dump': data.h[2][1] < 0}">{{data.h[2][0] | currency:config.c:symbol:(config.c=='JPY'?'1.0-0':'1.2-2')}}</div>
+        <span>{{data.h[2][2] | currency:(config.c!='USD'?'USD':'JPY')}}</span>
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+
+  <div class="divider"> </div>
+
+  <ion-grid class="g4">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="ios-pie-outline" start></ion-icon>
+        時価総額シェア率
+      </ion-col>
+      <ion-col text-right>
+        総: {{data.c[2] | currency:config.c:'symbol':'1.0-0'}}
+      </ion-col>
+    </ion-row>
+    <canvas #canvas height="72px" style="padding-right:10px"> </canvas>
+  </ion-grid>
+
+  <div class="divider"> </div>
+
+  <!-- <ion-grid class="g2">
+    <ion-row>
+      <ion-col>
+        <ion-icon name="ios-list-outline" start></ion-icon>
+        トップ１００
+      </ion-col>
+    </ion-row>
+  </ion-grid> -->
+  <ion-segment class="g5" [(ngModel)]="mdiv" color="primary">
+    <ion-segment-button value="1">
+      トップ１００
+    </ion-segment-button>
+    <ion-segment-button value="2">
+      お気に入り
+    </ion-segment-button>
+  </ion-segment>
+
+  <div [ngSwitch]="mdiv">
+    <ion-grid class="g3">
+      <ion-row text-center>
+        <ion-col text-justify>
+          <div>コイン</div>
+        </ion-col>
+        <ion-col text-right>
+          <div>現在価格</div>
+        </ion-col>
+        <ion-col text-right>
+          <div>日变化量</div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="g3" *ngSwitchCase="'1'">
+      <ion-row text-center *ngFor="let o of data.l; let i = index">
+        <ion-col text-justify><span class="s1">{{(i+1).toString() | lpad: 2: '0'}}</span>{{o[0]}}</ion-col>
+        <ion-col text-right>{{o[1] | currency:config.c}}</ion-col>
+        <ion-col text-right>
+          <ion-badge [color]="o[3]>0 ? 'secondary' : 'danger'">
+            {{o[3]>0?'+':''}}{{o[3]}}%
+          </ion-badge>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid class="g3" *ngSwitchCase="'2'">
+      <ion-row text-center *ngFor="let o of vlas; let i = index">
+        <ion-col text-justify><span class="s1">{{(i+1).toString() | lpad: 2: '0'}}</span>{{o[1]}}</ion-col>
+        <ion-col text-right>{{o[2] | currency:config.c}}</ion-col>
+        <ion-col text-right>
+          <ion-badge [color]="o[3]>0 ? 'secondary' : 'danger'">
+            {{o[3]>0?'+':''}}{{o[3]}}%
+          </ion-badge>
+        </ion-col>
+        <ion-col col-auto *ngIf="show">
+          <ion-icon name="ios-remove-circle-outline" color="danger" (click)="doAction(2, o)"></ion-icon>
+        </ion-col>
+      </ion-row>
+      <ion-row class="r6">
+        <ion-col text-center>
+          <button ion-button small block clear (click)="doAction(1)">追加</button>
+        </ion-col>
+        <ion-col text-center>
+          <button ion-button small block clear (click)="doAction(3)" [disabled]="vlas.length==0">削除</button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

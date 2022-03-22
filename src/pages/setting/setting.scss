@@ -1,0 +1,21 @@
+page-setting {
+  ion-list {
+    ion-item {
+      font-size: 110% !important;
+      border-bottom: 1px solid color($colors, light, base) !important;
+    }
+  }
+
+  .d1 {
+    text-align: center;
+    padding-top: 100px !important;
+
+    div {
+      margin-top: 150px !important;
+
+      &:last-child {
+        margin-top: 20px !important;
+      }
+    }
+  }
+}

@@ -1,0 +1,13 @@
+page-profile {
+  ion-list {
+
+    ion-item {
+      border-bottom: 1px solid color($colors, light, base) !important;
+      font-size: 110% !important;
+    }
+    button {
+      font-size: 110% !important;
+      color: color($colors, danger, base) !important;
+    }
+  }
+}

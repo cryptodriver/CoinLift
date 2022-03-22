@@ -1,0 +1,12 @@
+<ion-content>
+  <form [formGroup]="form" (ngSubmit)="doSubmit()">
+  <ion-list no-lines padding-top>
+    <ion-item>
+      <ion-textarea #input placeholder="コメントを入力してください" formControlName='content' required maxlength="80" rows="4"></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <button ion-button item-end small type="submit" [disabled]="!form.valid">コメントする</button>
+    </ion-item>
+  </ion-list>
+  </form>
+</ion-content>

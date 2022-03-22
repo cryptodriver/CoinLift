@@ -1,0 +1,46 @@
+<ion-header no-border>
+  <ion-navbar color="primary">
+    <ion-title>
+      マイ
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list no-lines>
+    <ion-item detail-push (click)="doSignin()" *ngIf="!data?.token">
+      <ion-avatar item-start>
+        <img src="{{data?.avatar || 'assets/imgs/avatar.png'}}">
+      </ion-avatar>
+      <h1>サインインまたは登録</h1>
+    </ion-item>
+    <ion-item *ngIf="data?.token">
+      <ion-avatar item-start (click)="doAvatar()">
+        <img src="{{data?.avatar}}">
+      </ion-avatar>
+      <h1 (click)="doProfile()">{{data?.name || 'ID'+data?.id}}</h1>
+    </ion-item>
+    <ion-item detail-push (click)="doSetting(1, {n: '通知受け取り'})">
+      <ion-icon name="ios-notifications-outline" start color="primary"></ion-icon>
+      通知受け取り
+    </ion-item>
+    <ion-item detail-push (click)="doSetting(2, {n: '表記通貨'})">
+      <ion-icon name="ios-at-outline" start color="primary"></ion-icon>
+      表記通貨
+    </ion-item>
+    <!-- <ion-item detail-push (click)="doSetting(3, {n: '相場更新頻度'})">
+      <ion-icon name="ios-time-outline" start color="primary"></ion-icon>
+      相場更新頻度
+    </ion-item> -->
+    <div class="divider"> </div>
+    <ion-item detail-push (click)="doSetting(4, {n: '注目相場', v: data.coins})">
+      <ion-icon name="ios-compass-outline" start color="primary"></ion-icon>
+      注目相場
+    </ion-item>
+    <ion-item-divider color="light"> </ion-item-divider>
+    <ion-item detail-push (click)="doSetting(9, {n: 'アプリについて'})">
+      <ion-icon name="ios-information-circle-outline" start color="primary"></ion-icon>
+      本アプリ
+    </ion-item>
+  </ion-list>
+</ion-content>

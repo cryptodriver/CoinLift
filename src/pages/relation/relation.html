@@ -1,0 +1,14 @@
+<ion-list no-lines>
+  <ion-item (click)="doAction(1)" *ngIf="data.user_id!=data.my_id">
+    <ion-icon name="ios-quote-outline" item-start></ion-icon>{{ data.relation?.follows.includes(data.user_id) ? 'アンフォロー' : 'フォローする' }}
+  </ion-item>
+  <!-- <ion-item (click)="doAction(2)" *ngIf="data.user_id!=data.my_id">
+    <ion-icon name="ios-eye-off-outline" item-start></ion-icon>{{ data.relation.blocks.includes(data.user_id) ? 'ブロック中' : 'ブロックする' }}
+  </ion-item> -->
+  <ion-item (click)="doAction(3)" *ngIf="data.user_id==data.my_id">
+    <ion-icon name="ios-trash-outline" item-start></ion-icon>削除する
+  </ion-item>
+  <!-- <ion-item (click)="doAction(4)" *ngIf="data.user_id==data.my_id">
+    <ion-icon name="ios-bookmark-outline" item-start></ion-icon>お気に入り
+  </ion-item> -->
+</ion-list>

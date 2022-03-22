@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "608702317809",
+    "firebase_url": "https://coinlift-77b56.firebaseio.com",
+    "project_id": "coinlift-77b56",
+    "storage_bucket": "coinlift-77b56.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:608702317809:android:e490d758111d6970",
+        "android_client_info": {
+          "package_name": "jp.insupl.coinlift"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "608702317809-314jui7736fibtjedqq0d64tpqk1hqbl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDfir8jh1m1xWGrjjf8P8Oypuo13MJH3dc"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

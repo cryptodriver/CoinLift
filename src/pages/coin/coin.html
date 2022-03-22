@@ -1,0 +1,16 @@
+<ion-header>
+  <ion-navbar color="light">
+    <ion-searchbar [showCancelButton]="shouldShowCancel"
+      (ionInput)="doAction(2,null,$event)" (ionCancel)="doAction(1,null,$event)">
+    </ion-searchbar>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-list>
+    <ion-item *ngFor="let o of data;">
+      {{o.symbol}}: {{o.name}}
+      <button ion-button outline item-end (click)="doAction(3, o)" [disabled]="inArray(favs, o, 'id')">お気に入り</button>
+    </ion-item>
+  </ion-list>
+</ion-content>

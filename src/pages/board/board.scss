@@ -1,0 +1,106 @@
+page-board {
+
+  .i1 {
+    margin: 0 8px 0 8px !important;
+
+    ion-label {
+      color: color($colors, medium, base);
+      margin: 2px 8px 0 8px !important;
+
+      ion-icon {
+        font-size: 120%;
+        color: color($colors, medium, base);
+      }
+
+      span {
+        font-size: 100%;
+      }
+    }
+
+    button {
+      padding-left: 0 !important;
+      margin-left: 0 !important;
+    }
+  }
+
+  .c1 {
+    margin: 0px !important;
+    width: calc(100% - 0px) !important;
+    -webkit-box-shadow: none !important;
+    box-shadow:  none !important;
+
+    ion-avatar {
+      margin-right: 5px !important;
+    }
+
+    ion-item {
+      p {
+        font-size: 60% !important;
+      }
+    }
+
+    ion-card-content {
+      padding-bottom: 0 !important;
+
+      div {
+        margin-bottom: 10px !important;
+      }
+
+      p {
+        color: color($colors, dark, base);
+        font-size: 110% !important;
+        line-height: 150%;
+      }
+
+      button {
+        span {
+          font-size: 110% !important;
+        }
+      }
+    }
+
+    .clamp {
+      overflow: hidden;
+      display: -webkit-box;
+      -webkit-line-clamp: 4;
+      -webkit-box-orient: vertical;
+    }
+
+    ion-row {
+      ion-col {
+        padding: 0px !important;
+
+        button {
+          font-size: 80%;
+        }
+      }
+    }
+
+    .r1 {
+      border-top: 1px solid color($colors, light, base) !important;
+      margin: 0 16px 0 16px !important;
+    }
+
+    ion-grid {
+      background-color: color($colors, light, base);
+      font-size: 90%;
+
+      ion-col {
+        padding: 0px !important;
+
+        button {
+          height: 1.2em !important;
+          margin: 0 !important;
+        }
+
+        span {
+          color: color($colors, primary, base);
+          font-size: 100%;
+          margin-right: 5px !important;
+        }
+
+      }
+    }
+
+  }
+}

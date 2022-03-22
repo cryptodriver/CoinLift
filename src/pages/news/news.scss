@@ -1,0 +1,63 @@
+page-news {
+
+  .d1 {
+    background-color: color($colors, light, base);
+    font-size: 80%;
+    padding: 5px 0 5px 0px;
+  }
+
+  .g1 {
+    padding: 0px;
+    ion-col {
+      padding-right: 8px;
+      border-left: 1px solid color($colors, shade, base);
+
+      ion-badge {
+        margin-left: -15px;
+        font-weight: lighter;
+        font-size: 80%;
+        color: color($colors, primary, base);
+        border: 1px solid color($colors, shade, base);
+      }
+
+      h6 {
+        padding-left: 5px !important;
+      }
+
+      div {
+        padding-left: 5px !important;
+        padding-right: 5px !important;
+        line-height: 150%;
+        font-size: 110% !important;
+      }
+
+      ion-col {
+        padding: 10px 5px 0px 0px !important;
+        border-left: 0px !important;
+
+        button {
+          margin: 0 0 0 -5px !important;
+          font-size: 80%;
+        }
+
+        &:last-child {
+          button {
+            padding-right: 0px !important;
+          }
+        }
+      }
+
+      .clamp {
+        overflow: hidden;
+        display: -webkit-box;
+        -webkit-line-clamp: 4;
+        -webkit-box-orient: vertical;
+      }
+
+      .strenth {
+        color: color($colors, danger, base);
+      }
+    }
+  }
+
+}

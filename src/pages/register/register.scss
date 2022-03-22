@@ -1,0 +1,16 @@
+page-register {
+  .fixed-content{
+    background-color: color($colors, white, base);
+  }
+
+  ion-list {
+    ion-item {
+      border-bottom: 1px solid color($colors, light, base) !important;
+
+      button {
+        min-width: 50px !important;
+      }
+    }
+
+  }
+}

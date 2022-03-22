@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-navbar color="primary">
+    <ion-title>ニュース</ion-title>
+    <!-- <ion-buttons end>
+      <button ion-button icon-only color="white" (click)="doAction(4)">
+        <ion-icon name="ios-search-outline"></ion-icon>
+      </button>
+    </ion-buttons> -->
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-refresher (ionRefresh)="doRefresh($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
+  <div *ngFor="let o of data; let i = index">
+    <div class="d1" padding-left *ngIf="i==0 || data[i-1].created_at.split('T')[0] != o.created_at.split('T')[0] ">{{o.created_at | date: 'MM月dd日'}}</div>
+    <ion-grid class="g1">
+      <ion-row padding-left>
+        <ion-col>
+          <ion-badge color="light">{{o.created_at | date: 'hh:mm'}}</ion-badge>
+          <h6 [ngClass]="o.stars>3?'strenth':''">{{o.title}}</h6>
+          <div [ngClass]="o._clamped!=null&&o._clamped?'':'clamp'" (click)="doClamp(o)" text-justify>
+            {{o.content}}
+          </div>
+          <ion-row>
+            <ion-col col-3 text-nowrap>
+              <button ion-button icon-start clear small [color]="o.good>0?'secondary':'medium'" (click)="doAction(1, o)">
+                <ion-icon name="ios-happy-outline" start></ion-icon>
+                好材料 {{o.good}}
+              </button>
+            </ion-col>
+            <ion-col col-3 text-nowrap>
+              <button ion-button icon-start clear small [color]="o.bad>0?'tertiary':'medium'" (click)="doAction(2, o)">
+                <ion-icon name="ios-sad-outline" start></ion-icon>
+                悪材料 {{o.bad}}
+              </button>
+            </ion-col>
+            <ion-col text-right>
+              <button ion-button icon-start clear small color="medium" (click)="doAction(3, o)">
+                <ion-icon name="ios-redo-outline" start></ion-icon>
+                シェア
+              </button>
+            </ion-col>
+          </ion-row>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+    <ion-infinite-scroll-content></ion-infinite-scroll-content>
+  </ion-infinite-scroll>
+</ion-content>
